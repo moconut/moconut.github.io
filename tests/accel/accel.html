@@ -63,7 +63,7 @@
                 circleArray[arrayIndex].xPos = x;
                 circleArray[arrayIndex].yPos = y;
                 circleArray[arrayIndex].radius = r;
-                circleArray[arrayIndex].opacity = 100;
+                circleArray[arrayIndex].opacity = MAX_OPACITY;
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
@@ -78,10 +78,9 @@
                     ctx.fill();
                 }
 
-                var alpha = circleArray[arrayIndex].opacity / 100;
                 ctx.beginPath();
                 ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
-                ctx.fillStyle = `rgba(255, 127, 39, ${alpha})`;
+                ctx.fillStyle = `rgba(255, 127, 39, 1)`;
                 ctx.fill();
 
                 arrayIndex++
