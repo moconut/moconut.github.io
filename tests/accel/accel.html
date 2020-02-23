@@ -12,18 +12,31 @@
         <span id="gamma" class="value">null</span>,
         <span id="alpha" class="value">null</span>)
     </p>
+    <canvas id="myCanvas">
+        Your browser does not support the canvas element.
+    </canvas>
     <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
         if (!('ondeviceorientation' in window)) {
             //document.getElementById('do-unsupported').classList.remove('hidden');
         } else {
             //document.getElementById('do-info').classList.remove('hidden');
 
-            window.addEventListener('deviceorientation', function (event) { 
+            window.addEventListener('deviceorientation', function (event) {
                 document.getElementById('beta').innerHTML = Math.round(event.beta);
                 document.getElementById('gamma').innerHTML = Math.round(event.gamma);
                 document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+
+                ctx.beginPath();
+                ctx.arc(event.gamma, event.beta, event.alpha, 0, 2 * Math.PI);
+                ctx.fillStyle = 'green';
+                ctx.fill();
             });
+
+
         }
     </script>
 </body>
