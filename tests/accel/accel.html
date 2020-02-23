@@ -24,8 +24,8 @@
         var circleArray = []
         var arrayIndex = 0;
 
-        for (i = 0; i < circleArray.length; i++) {
-            circleArray[i] = {xPos : 0, yPos : 0, radius : 0, opacity : 0};
+        for (i = 0; i < ARRAY_MAX; i++) {
+            circleArray.push({xPos : 0, yPos : 0, radius : 0, opacity : 0});
         }
 
         if (!('ondeviceorientation' in window)) {
