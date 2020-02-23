@@ -19,7 +19,7 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 
-        const ARRAY_MAX = 10;
+        const ARRAY_MAX = 30;
 
         var circleArray = []
         var arrayIndex = 0;
@@ -69,6 +69,8 @@
                 }
                 
                 arrayIndex++
+                if(arrayIndex >= ARRAY_MAX)
+                    arrayIndex = 0;
             });
 
 
