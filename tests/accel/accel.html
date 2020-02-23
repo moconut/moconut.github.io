@@ -19,11 +19,16 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 
+        const ARRAY_MAX = 100;
+
+        var circleArray = []
+        var arrayIndex = 0;
+
         if (!('ondeviceorientation' in window)) {
             //document.getElementById('do-unsupported').classList.remove('hidden');
         } else {
             //document.getElementById('do-info').classList.remove('hidden');
-            canvas.width  = window.innerWidth;
+            canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
             window.addEventListener('deviceorientation', function (event) {
@@ -32,7 +37,7 @@
                 document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
-                
+
 
                 var width = canvas.width;
                 var height = canvas.height;
@@ -42,7 +47,7 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 4;
+                var rMax = width / 3;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
@@ -50,11 +55,20 @@
 
                 ctx.clearRect(0, 0, width, height);
 
-                ctx.beginPath();
-                ctx.arc(x, y, r, 0, 2 * Math.PI);
-                ctx.fillStyle = 'green';
-                ctx.fill();
+                circleArray[arrayIndex] = {xPos : x, yPos : y, radius : r, opacity : 100};
+
+                var i;
+                for (i = 0; i < circleArray.length; i++) {
+                    circleArray[i].opacity--;
+
+                    var alpha = circleArray[i].opacity / 100;
+                    ctx.beginPath();
+                    ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 255, 0, ${alpha})`;
+                    ctx.fill();
+                }
                 
+                arrayIndex++
             });
 
 
