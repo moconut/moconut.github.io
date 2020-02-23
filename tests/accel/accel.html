@@ -12,7 +12,7 @@
         <span id="gamma" class="value">null</span>,
         <span id="alpha" class="value">null</span>)
     </p>
-    <canvas id="myCanvas">
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">>
         Your browser does not support the canvas element.
     </canvas>
     <script>
@@ -30,10 +30,13 @@
                 document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
                 ctx.beginPath();
                 ctx.arc(event.gamma, event.beta, event.alpha, 0, 2 * Math.PI);
                 ctx.fillStyle = 'green';
                 ctx.fill();
+                
             });
 
 
