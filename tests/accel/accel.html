@@ -52,7 +52,7 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 4;
+                var rMax = width / 5;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
@@ -63,13 +63,13 @@
                 circleArray[arrayIndex].xPos = x;
                 circleArray[arrayIndex].yPos = y;
                 circleArray[arrayIndex].radius = r;
-                circleArray[arrayIndex].opacity = MAX_OPACITY;
+                circleArray[arrayIndex].opacity = 100;
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
                     if (i == arrayIndex)
                         continue;
-                        
+
                     circleArray[i].opacity -= MAX_OPACITY / ARRAY_MAX;
                     var alpha = circleArray[i].opacity / 100;
                     ctx.beginPath();
