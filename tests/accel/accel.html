@@ -23,6 +23,8 @@
             //document.getElementById('do-unsupported').classList.remove('hidden');
         } else {
             //document.getElementById('do-info').classList.remove('hidden');
+            canvas.width  = window.innerWidth;
+            canvas.height = window.innerHeight;
 
             window.addEventListener('deviceorientation', function (event) {
                 document.getElementById('beta').innerHTML = Math.round(event.beta);
@@ -30,8 +32,7 @@
                 document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
-                canvas.width  = window.innerWidth;
-                canvas.height = window.innerHeight;
+                
 
                 var width = canvas.width;
                 var height = canvas.height;
