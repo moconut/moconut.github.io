@@ -26,7 +26,7 @@
         var arrayIndex = 0;
 
         for (i = 0; i < ARRAY_MAX; i++) {
-            circleArray.push({xPos : 0, yPos : 0, radius : 0, opacity : 0});
+            circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0 });
         }
 
         if (!('ondeviceorientation' in window)) {
@@ -67,18 +67,25 @@
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
-                    if(i != arrayIndex)
-                        circleArray[i].opacity -= MAX_OPACITY / ARRAY_MAX;
-
+                    if (i == arrayIndex)
+                        continue;
+                        
+                    circleArray[i].opacity -= MAX_OPACITY / ARRAY_MAX;
                     var alpha = circleArray[i].opacity / 100;
                     ctx.beginPath();
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
                     ctx.fillStyle = `rgba(255, 127, 39, ${alpha})`;
                     ctx.fill();
                 }
-                
+
+                var alpha = circleArray[arrayIndex].opacity / 100;
+                ctx.beginPath();
+                ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
+                ctx.fillStyle = `rgba(255, 127, 39, ${alpha})`;
+                ctx.fill();
+
                 arrayIndex++
-                if(arrayIndex >= ARRAY_MAX)
+                if (arrayIndex >= ARRAY_MAX)
                     arrayIndex = 0;
             });
 
