@@ -30,10 +30,22 @@
                 document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                var width = canvas.width;
+                var height = canvas.height;
+
+                var centerX = width / 2;
+                var centerY = height / 2;
+
+                var rMax = 100;
+
+                var x = centerX + event.gamma;
+                var y = centerY + event.beta;
+                var r = Math.abs(180 - event.alpha) / 180 * rMax;
+
+                ctx.clearRect(0, 0, width, height);
 
                 ctx.beginPath();
-                ctx.arc(event.gamma, event.beta, event.alpha, 0, 2 * Math.PI);
+                ctx.arc(event.gamma, event.beta, r, 0, 2 * Math.PI);
                 ctx.fillStyle = 'green';
                 ctx.fill();
                 
