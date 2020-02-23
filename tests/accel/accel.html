@@ -20,6 +20,7 @@
         var ctx = canvas.getContext("2d");
 
         const ARRAY_MAX = 30;
+        const MAX_OPACITY = 70;
 
         var circleArray = []
         var arrayIndex = 0;
@@ -62,16 +63,16 @@
                 circleArray[arrayIndex].xPos = x;
                 circleArray[arrayIndex].yPos = y;
                 circleArray[arrayIndex].radius = r;
-                circleArray[arrayIndex].opacity = 100;
+                circleArray[arrayIndex].opacity = MAX_OPACITY;
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
-                    circleArray[i].opacity -= 100 / ARRAY_MAX;
+                    circleArray[i].opacity -= MAX_OPACITY / ARRAY_MAX;
 
                     var alpha = circleArray[i].opacity / 100;
                     ctx.beginPath();
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
-                    ctx.fillStyle = `rgba(0, 255, 255, ${alpha})`;
+                    ctx.fillStyle = `rgba(255, 127, 39, ${alpha})`;
                     ctx.fill();
                 }
                 
