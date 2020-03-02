@@ -81,9 +81,9 @@
                 var colorGDiff = Math.abs(180 - event.alpha) / 180 * (color1G - color2G);
                 var colorBDiff = Math.abs(180 - event.alpha) / 180 * (color1B - color2B);
                 
-                var colorR = color1R + colorRDiff;
-                var colorG = color1G + colorGDiff;
-                var colorB = color1B + colorBDiff;
+                var colorR = color2R + colorRDiff;
+                var colorG = color2G + colorGDiff;
+                var colorB = color2B + colorBDiff;
 
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "black";
