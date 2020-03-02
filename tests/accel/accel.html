@@ -75,7 +75,7 @@
                 var x2 = centerX + (event.beta / 90 * xMax);
                 var y2 = centerY + (event.gamma / 90 * yMax);
                 var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
-                var r2 = Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin;
+                var r2 = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 0.5;
 
                 var colorRDiff = Math.abs(180 - event.alpha) / 180 * (color1R - color2R);
                 var colorGDiff = Math.abs(180 - event.alpha) / 180 * (color1G - color2G);
@@ -97,8 +97,8 @@
                 circleArray[arrayIndex].colorG = colorG;
                 circleArray[arrayIndex].colorB = colorB;
 
-                circleArray2[arrayIndex].xPos = x2;
-                circleArray2[arrayIndex].yPos = y2;
+                circleArray2[arrayIndex].xPos = x;
+                circleArray2[arrayIndex].yPos = y;
                 circleArray2[arrayIndex].radius = r2;
                 circleArray2[arrayIndex].opacity = MAX_OPACITY;
 
