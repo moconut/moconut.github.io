@@ -36,7 +36,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
-            // window.addEventListener('deviceorientation', function (event) {
+            window.addEventListener('deviceorientation', function (event) {
             //     document.getElementById('beta').innerHTML = Math.round(event.beta);
             //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
             //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
@@ -52,7 +52,7 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 5;
+                var rMax = width / 8;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
