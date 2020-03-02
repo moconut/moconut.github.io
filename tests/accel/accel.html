@@ -53,11 +53,12 @@
                 var xMax = centerX;
                 var yMax = centerY;
                 var rMax = width / 6;
+                var rMin = width / 12;
                 var colorMin = 80;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
-                var r = Math.abs(180 - event.alpha) / 180 * rMax;
+                var r = Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin;
                 var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - colorMin);
                 
                 var color1 = 255 - colorDiff;
