@@ -58,7 +58,7 @@
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
                 var r = Math.abs(180 - event.alpha) / 180 * rMax;
-                var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - ColorMin);
+                var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - colorMin);
                 
                 var color1 = 255 - diff;
                 var color2 = colorMin + diff;
