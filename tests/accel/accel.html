@@ -19,7 +19,7 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 
-        const ARRAY_MAX = 400;
+        const ARRAY_MAX = 800;
         const MAX_OPACITY = 80;
 
         var circleArray = []
@@ -52,11 +52,12 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 8;
+                var rMax = width / 7;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
                 var r = Math.abs(180 - event.alpha) / 180 * rMax;
+                var color = 255;
 
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "black";
@@ -66,25 +67,25 @@
                 circleArray[arrayIndex].yPos = y;
                 circleArray[arrayIndex].radius = r;
                 circleArray[arrayIndex].opacity = MAX_OPACITY;
+                circleArray[arrayIndex].color = color;
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
                     if (i == arrayIndex)
                         continue;
                         
-                    circleArray[i].opacity /= 1.03;
-                    circleArray[i].radius /= 1.007;
+                    circleArray[i].opacity /= 1.02;
+                    circleArray[i].radius /= 1.005;
                     var alpha = circleArray[i].opacity / 100;
-                    var color = 255;
                     ctx.beginPath();
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
-                    ctx.fillStyle = `rgba(${color}, ${color}, ${color}, ${alpha})`;
+                    ctx.fillStyle = `rgba(${circleArray[i].color}, ${circleArray[i].color}, ${circleArray[i].color}, ${alpha})`;
                     ctx.fill();
                 }
 
                 ctx.beginPath();
                 ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
-                ctx.fillStyle = `rgba(${color}, ${color}, ${color}, 1)`;
+                ctx.fillStyle = `rgba(${circleArray[arrayIndex].color}, ${circleArray[arrayIndex].color}, ${circleArray[arrayIndex].color}, 1)`;
                 ctx.fill();
 
                 arrayIndex++
