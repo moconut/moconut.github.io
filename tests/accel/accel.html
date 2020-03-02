@@ -26,7 +26,7 @@
         var arrayIndex = 0;
 
         for (i = 0; i < ARRAY_MAX; i++) {
-            circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0, color : 0});
+            circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0, colorR: 0, colorG: 0, colorB: 0 });
         }
 
         if (!('ondeviceorientation' in window)) {
@@ -37,9 +37,9 @@
             canvas.height = window.innerHeight;
 
             window.addEventListener('deviceorientation', function (event) {
-            //     document.getElementById('beta').innerHTML = Math.round(event.beta);
-            //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-            //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+                //     document.getElementById('beta').innerHTML = Math.round(event.beta);
+                //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+                //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
 
@@ -53,11 +53,15 @@
                 var xMax = centerX;
                 var yMax = centerY;
                 var rMax = width / 6;
+                var colorMin = 80;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
                 var r = Math.abs(180 - event.alpha) / 180 * rMax;
-                var color = Math.abs(180 - event.alpha) / 180 * 255;
+                var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - ColorMin);
+                
+                var color1 = 255 - diff;
+                var color2 = colorMin + diff;
 
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "black";
@@ -67,25 +71,27 @@
                 circleArray[arrayIndex].yPos = y;
                 circleArray[arrayIndex].radius = r;
                 circleArray[arrayIndex].opacity = MAX_OPACITY;
-                circleArray[arrayIndex].color = color;
+                circleArray[arrayIndex].colorR = color1;
+                circleArray[arrayIndex].colorG = color2;
+                circleArray[arrayIndex].colorB = color1;
 
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
                     if (i == arrayIndex)
                         continue;
-                        
+
                     circleArray[i].opacity /= 1.013;
                     circleArray[i].radius /= 1.004;
                     var alpha = circleArray[i].opacity / 100;
                     ctx.beginPath();
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
-                    ctx.fillStyle = `rgba(${circleArray[i].color}, ${circleArray[i].color}, ${circleArray[i].color}, ${alpha})`;
+                    ctx.fillStyle = `rgba(${circleArray[i].colorR}, ${circleArray[i].colorG}, ${circleArray[i].colorB}, ${alpha})`;
                     ctx.fill();
                 }
 
                 ctx.beginPath();
                 ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
-                ctx.fillStyle = `rgba(${circleArray[arrayIndex].color}, ${circleArray[arrayIndex].color}, ${circleArray[arrayIndex].color}, 1)`;
+                ctx.fillStyle = `rgba(${circleArray[arrayIndex].colorR}, ${circleArray[arrayIndex].colorG}, ${circleArray[arrayIndex].colorB}, 1)`;
                 ctx.fill();
 
                 arrayIndex++
