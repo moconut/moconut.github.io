@@ -19,14 +19,14 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 
-        const ARRAY_MAX = 200;
+        const ARRAY_MAX = 400;
         const MAX_OPACITY = 80;
 
         var circleArray = []
         var arrayIndex = 0;
 
         for (i = 0; i < ARRAY_MAX; i++) {
-            circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0 });
+            circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0, color : 0});
         }
 
         if (!('ondeviceorientation' in window)) {
@@ -72,8 +72,8 @@
                     if (i == arrayIndex)
                         continue;
                         
-                    circleArray[i].opacity /= 1.05;
-                    circleArray[i].radius /= 1.01;
+                    circleArray[i].opacity /= 1.03;
+                    circleArray[i].radius /= 1.007;
                     var alpha = circleArray[i].opacity / 100;
                     var color = 255;
                     ctx.beginPath();
