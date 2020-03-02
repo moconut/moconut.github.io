@@ -19,7 +19,7 @@
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 
-        const ARRAY_MAX = 800;
+        const ARRAY_MAX = 1000;
         const MAX_OPACITY = 80;
 
         var circleArray = []
@@ -74,8 +74,8 @@
                     if (i == arrayIndex)
                         continue;
                         
-                    circleArray[i].opacity /= 1.02;
-                    circleArray[i].radius /= 1.005;
+                    circleArray[i].opacity /= 1.013;
+                    circleArray[i].radius /= 1.004;
                     var alpha = circleArray[i].opacity / 100;
                     ctx.beginPath();
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
