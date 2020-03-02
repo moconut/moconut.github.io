@@ -6,12 +6,12 @@
     <title>accelerometer Test</title>
 
 <body>
-    <p>
+    <!-- <p>
         Coordinates:
         (<span id="beta" class="value">null</span>,
         <span id="gamma" class="value">null</span>,
         <span id="alpha" class="value">null</span>)
-    </p>
+    </p> -->
     <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">>
         Your browser does not support the canvas element.
     </canvas>
@@ -36,10 +36,10 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
-            window.addEventListener('deviceorientation', function (event) {
-                document.getElementById('beta').innerHTML = Math.round(event.beta);
-                document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-                document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+            // window.addEventListener('deviceorientation', function (event) {
+            //     document.getElementById('beta').innerHTML = Math.round(event.beta);
+            //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+            //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
                 //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
 
@@ -59,6 +59,8 @@
                 var r = Math.abs(180 - event.alpha) / 180 * rMax;
 
                 ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 circleArray[arrayIndex].xPos = x;
                 circleArray[arrayIndex].yPos = y;
