@@ -52,12 +52,12 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 7;
+                var rMax = width / 6;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
                 var r = Math.abs(180 - event.alpha) / 180 * rMax;
-                var color = 255;
+                var color = Math.abs(180 - event.alpha) / 180 * 255;
 
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "black";
