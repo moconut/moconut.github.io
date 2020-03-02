@@ -77,9 +77,9 @@
                 var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
                 var r2 = Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin;
 
-                var colorRDiff = Math.abs(180 - event.alpha) / 180 * color1R - color2R;
-                var colorGDiff = Math.abs(180 - event.alpha) / 180 * color1G - color2G;
-                var colorBDiff = Math.abs(180 - event.alpha) / 180 * color1B - color2B;
+                var colorRDiff = Math.abs(180 - event.alpha) / 180 * (color1R - color2R);
+                var colorGDiff = Math.abs(180 - event.alpha) / 180 * (color1G - color2G);
+                var colorBDiff = Math.abs(180 - event.alpha) / 180 * (color1B - color2B);
                 
                 var colorR = color1R + colorRDiff;
                 var colorG = color1G + colorGDiff;
