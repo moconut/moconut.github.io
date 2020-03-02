@@ -59,7 +59,7 @@
 
                 var xMax = centerX;
                 var yMax = centerY;
-                var rMax = width / 7;
+                var rMax = width / 35;
                 var rMin = rMax / 3;
                 var colorMin = 80;
 
@@ -108,8 +108,9 @@
                     var alpha = circleArray2[i].opacity / 100;
                     ctx.beginPath();
                     ctx.arc(circleArray2[i].xPos, circleArray2[i].yPos, circleArray2[i].radius, 0, 2 * Math.PI);
-                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-                    ctx.fill();
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.stroke();
                 }
 
                 // ctx.beginPath();
