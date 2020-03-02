@@ -61,7 +61,14 @@
                 var yMax = centerY;
                 var rMax = width / 17;
                 var rMin = rMax / 3;
-                var colorMin = 80;
+                
+                var color1R = 230;
+                var color1G = 128;
+                var color1B = 210;
+
+                var color2R = 255;
+                var color2G = 20;
+                var color2B = 30;
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
@@ -69,10 +76,14 @@
                 var y2 = centerY + (event.gamma / 90 * yMax);
                 var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
                 var r2 = Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin;
-                var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - colorMin);
+
+                var colorRDiff = Math.abs(180 - event.alpha) / 180 * color1R - color2R;
+                var colorGDiff = Math.abs(180 - event.alpha) / 180 * color1G - color2G;
+                var colorBDiff = Math.abs(180 - event.alpha) / 180 * color1B - color2B;
                 
-                var color1 = 255 - colorDiff;
-                var color2 = colorMin + colorDiff;
+                var colorR = color1R + colorRDiff;
+                var colorG = color1G + colorGDiff;
+                var colorB = color1B + colorBDiff;
 
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "black";
