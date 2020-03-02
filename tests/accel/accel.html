@@ -65,6 +65,8 @@
 
                 var x = centerX + (event.gamma / 90 * xMax);
                 var y = centerY + (event.beta / 90 * yMax);
+                var x2 = centerX + (event.beta / 90 * xMax);
+                var y2 = centerY + (event.gamma / 90 * yMax);
                 var r = Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin;
                 var colorDiff = Math.abs(180 - event.alpha) / 180 * (255 - colorMin);
                 
@@ -83,8 +85,8 @@
                 circleArray[arrayIndex].colorG = color2;
                 circleArray[arrayIndex].colorB = color1;
 
-                circleArray2[arrayIndex].xPos = y;
-                circleArray2[arrayIndex].yPos = x;
+                circleArray2[arrayIndex].xPos = x2;
+                circleArray2[arrayIndex].yPos = y2;
                 circleArray2[arrayIndex].radius = r;
                 circleArray2[arrayIndex].opacity = MAX_OPACITY;
 
