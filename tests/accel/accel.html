@@ -22,11 +22,18 @@
         const ARRAY_MAX = 1000;
         const MAX_OPACITY = 80;
 
-        var circleArray = []
         var arrayIndex = 0;
+
+        var circleArray = []
 
         for (i = 0; i < ARRAY_MAX; i++) {
             circleArray.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0, colorR: 0, colorG: 0, colorB: 0 });
+        }
+
+        var circleArray2 = []
+
+        for (i = 0; i < ARRAY_MAX; i++) {
+            circleArray2.push({ xPos: 0, yPos: 0, radius: 0, opacity: 0});
         }
 
         if (!('ondeviceorientation' in window)) {
@@ -76,6 +83,11 @@
                 circleArray[arrayIndex].colorG = color2;
                 circleArray[arrayIndex].colorB = color1;
 
+                circleArray2[arrayIndex].xPos = y;
+                circleArray2[arrayIndex].yPos = x;
+                circleArray2[arrayIndex].radius = r;
+                circleArray2[arrayIndex].opacity = MAX_OPACITY;
+
                 var i;
                 for (i = 0; i < circleArray.length; i++) {
                     if (i == arrayIndex)
@@ -88,12 +100,20 @@
                     ctx.arc(circleArray[i].xPos, circleArray[i].yPos, circleArray[i].radius, 0, 2 * Math.PI);
                     ctx.fillStyle = `rgba(${circleArray[i].colorR}, ${circleArray[i].colorG}, ${circleArray[i].colorB}, ${alpha})`;
                     ctx.fill();
+
+                    circleArray2[i].opacity /= 1.013;
+                    circleArray2[i].radius /= 1.004;
+                    var alpha = circleArray2[i].opacity / 100;
+                    ctx.beginPath();
+                    ctx.arc(circleArray2[i].xPos, circleArray2[i].yPos, circleArray2[i].radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.fill();
                 }
 
-                ctx.beginPath();
-                ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
-                ctx.fillStyle = `rgba(${circleArray[arrayIndex].colorR}, ${circleArray[arrayIndex].colorG}, ${circleArray[arrayIndex].colorB}, 1)`;
-                ctx.fill();
+                // ctx.beginPath();
+                // ctx.arc(circleArray[arrayIndex].xPos, circleArray[arrayIndex].yPos, circleArray[arrayIndex].radius, 0, 2 * Math.PI);
+                // ctx.fillStyle = `rgba(${circleArray[arrayIndex].colorR}, ${circleArray[arrayIndex].colorG}, ${circleArray[arrayIndex].colorB}, 1)`;
+                // ctx.fill();
 
                 arrayIndex++
                 if (arrayIndex >= ARRAY_MAX)
