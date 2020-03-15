@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>nyan cat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id='blank' style="height: 100vh"></div>
+        <div id='cat-scene' class="scene" style="height: 500vh"
+            data-parallax='[{"pin":"#cat-container"}, {"backgroundColor":"#8419FC", "duration":"500vh"}]'>
+            <div id='cat-container'
+                data-parallax='{"y":"-100vh", "start":"#cat-scene","trigger":"-400%","duration":"100vh"}'>
+                <div id='cat' class='nyan-cat'>
+                    <img src="nyancat.gif">
+                </div>
+                <div id='rainbow-container'>
+                    <!-- <div class='rainbow1'
+                        data-parallax='{"x":"-100vw", "trigger":"80%", "start":"#cat-scene", "duration":"200vh"}'>
+                        <img src="rainbowhalf.png">
+                    </div>
+                    <div class='rainbow2'
+                        data-parallax='{"x":"-100vw", "trigger":"85%", "start":"#cat-scene", "duration":"200vh"}'>
+                        <img src="rainbowhalf.png">
+                    </div> -->
+                </div>
+                <div id='star-container'>
+                    <div class='star' style='top:-20vh;'
+                        data-parallax='{"x":"-110vw", "trigger":"0%", "start":"#cat-scene", "duration":"200vh"}'>
+                        <img src="star.gif">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='blank2' style="height: 100vh"></div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="jquery.data-parallax.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
