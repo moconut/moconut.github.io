@@ -1,6 +1,6 @@
 $.parallax.enableTouchDevices = true;
 
-const RAINBOW_NUMBER = 70;
+const RAINBOW_NUMBER = 110;
 const RAINBOW_START = 80;
 const RAINBOW_MARGIN = 5;
 
@@ -28,8 +28,8 @@ for (i = 0; i<STAR_NUMBER; i++) {
     var pos = Math.floor(Math.random() * STAR_POS_RANGE * 2) - STAR_POS_RANGE; // -30 ~ 30
     var speed = Math.floor(Math.random() * (STAR_MAX_SPEED - STAR_MIN_SPEED)) + STAR_MIN_SPEED; // 150 ~ 300;
     var margin = Math.floor(Math.random() * (STAR_MAX_MARGIN - STAR_MIN_MARGIN)) + STAR_MIN_MARGIN
-    var newRainbow = `<div class='star' style='top:${pos}vh;' data-parallax='{"x":"-130vw", "trigger":"${currentTrigger}%", "start":"#cat-scene", "duration":"${speed}vh"}'><img src="star.gif"></div>`
-    $('#rainbow-container').append(newRainbow);
+    var newStar = `<div class='star' style='top:${pos}vh;' data-parallax='{"x":"-130vw", "trigger":"${currentTrigger}%", "start":"#cat-scene", "duration":"${speed}vh"}'><img src="star.gif"></div>`
+    $('#star-container').append(newStar);
 
     currentTrigger -= margin;
 }

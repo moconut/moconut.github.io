@@ -16,7 +16,7 @@ body {
   
 #cat-container {
   position: absolute;
-  left: 50vw;
+  left: 0vw;
   top: 50vh;
 }
 
@@ -48,7 +48,7 @@ body {
 
 .star {
   position: absolute;
-  left: 50vw;
+  left: 100vw;
   z-index: 4;
 }
 
