@@ -1,3 +1,5 @@
+$.parallax.enableTouchDevices = true;
+
 const RAINBOW_NUMBER = 110;
 const RAINBOW_START = 80;
 const RAINBOW_MARGIN = 5;
