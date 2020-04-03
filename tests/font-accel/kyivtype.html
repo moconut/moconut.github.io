@@ -127,9 +127,26 @@
 				var zMax = 1;
 				var zMin = 0;
 
-				var x = xMin + ((event.gamma + 90) / 180 * (xMax - xMin));
-				var y = yMin + ((event.beta + 90) / 180 * (yMax - yMin));
-				var z = (event.beta + 90.0) / 180.0;
+				var gamma = event.gamma * 2;
+				var beta = event.beta * 2;
+
+				if(gamma > 90){
+					gamma = 90;
+				}
+				else if(gamma < -90){
+					gamma = -90;
+				}
+
+				if(beta > 90){
+					beta = 90;
+				}
+				else if(beta < -90){
+					beta = -90;
+				}
+
+				var x = xMin + (gamma + 90) / 180 * (xMax - xMin);
+				var y = yMin + (beta + 90) / 180 * (yMax - yMin);
+				var z = zMin + (beta + 90) / 180 * (zMax - zMin);
 
 				var settings = [];
 				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
