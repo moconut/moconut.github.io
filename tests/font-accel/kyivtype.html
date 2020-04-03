@@ -124,8 +124,6 @@
 	// });
 
 	var ul = document.getElementById("targetFont");
-	var settings = [];
-
 	if (!('ondeviceorientation' in window)) {
             //document.getElementById('do-unsupported').classList.remove('hidden');
         } else {
@@ -146,6 +144,7 @@
                 var x = 500 + (event.gamma / 90 * xMax);
 				var y = 500 + (event.beta / 90 * yMax);
 				
+				var settings = [];
 				settings.push(`"wght" ${x}, "CONT" ${y}, "MIDL" 300`);
 				ul.style.fontVariationSettings = settings;
                 //var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
