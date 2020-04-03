@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115473371-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-115473371-1');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="format-detection" content="telephone=no">
+
+<style>
+@font-face {
+	src: url('/assets/fonts/KyivTypeSans-VarGX.woff2') format('woff2-variations');
+	font-family:'KyivTypeSans';
+}
+* {
+	font-family: inherit;
+	font-weight: inherit;
+	font-variation-settings: inherit;
+	font-style: inherit;
+	font-size: 30px;
+	line-height: inherit;
+	text-align: inherit;
+	color: inherit;
+	text-decoration: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+
+* + * { margin-top: 1rem;}
+
+:root {
+	--pink: #F06;
+	--yellow: #f2e94e;
+	--yellow: #fff457;
+	--blue: #3397D9;
+	font-family: 'Zeitung Variable', 'Verdana', sans-serif;
+	font-variation-settings: 'wght' 320;
+	line-height: 1.25;
+	text-align: left;
+	color: var(--blue);
+	background-color: #FFF;
+	-webkit-text-size-adjust: 100%;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+
+	
+
+</head>
+
+<body>
+<div id="main">	
+	<div id="typefaces">
+		<div class="ajax-wrapper">
+				<div class="content">
+					<ul class="fonts" style="font-variation-settings: 'wght' 600,'CONT' 500,'MIDL' 0;" id="targetFont">
+						<li class="font">
+							<figure>
+								<div class="sample M L XL " style="font-family: 'KyivTypeSans'; font-size: 100vh;" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+									A
+								</div>
+								
+							</figure>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+			
+			
+			
+		
+
+		</div>
+	</div>
+	
+ <script type="text/javascript">
+	// $(document).ready(function() {
+	// 	$('#typefaces').delegate('.load-more', 'click', function(e) {
+	// 		// Don't follow the link
+	// 		e.preventDefault();
+	
+	// 		// Create a loading message and add it in place of the link
+	// 		loadingMessage = $('<div class="loading-more"><span class="spinner">⌚</span></div>');
+	// 		$('.pagination').replaceWith(loadingMessage);
+	
+	// 		// Fetch the next page
+	// 		$.get($(this).attr('href'), function(data) {
+	// 			// Only grab the part of the page we want
+	// 			content = $(data).find('.ajax-wrapper').hide();
+	
+	// 			// Add it to the DOM
+	// 			$(content).appendTo('#typefaces');
+	
+	// 			// Remove loading indicator 
+	// 			$('.loading-more').fadeOut('fast').remove();
+	
+	// 			// Fade-in our new content
+	// 			$(content).fadeIn('fast');
+				
+	// 			//Re-run the slider script
+	// 			document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
+	// 				axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
+	// 				li.className += ' loaded';
+	// 			});
+	// 		});
+	// 	});
+	// });
+
+	var ul = document.getElementById("targetFont");
+	var settings = ['"wght" 1000, "CONT" 0, "MIDL" 300'];
+	ul.style.fontVariationSettings = settings;
+	console.log(ul.style.fontVariationSettings);
+
+	if (!('ondeviceorientation' in window)) {
+            //document.getElementById('do-unsupported').classList.remove('hidden');
+        } else {
+            //document.getElementById('do-info').classList.remove('hidden');
+
+            window.addEventListener('deviceorientation', function (event) {
+                //     document.getElementById('beta').innerHTML = Math.round(event.beta);
+                //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+                //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+                //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+
+
+                var xMax = 500;
+                var yMax = 500;
+                //var rMax = width / 17;
+                //var rMin = rMax / 3;
+
+                var x = 500 + (event.gamma / 90 * xMax);
+                var y = 500 + (event.beta / 90 * yMax);
+                //var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
+            });
+
+
+        }
+</script>
+</div>
+
+<!-- <script>
+function axisSlidersToSamples(sliders, samples) {
+	var inputs = document.querySelectorAll(sliders);
+	var outputs = document.querySelectorAll(samples);
+
+	function doAxes() {
+		var i, l, axes = {}, ffs = [];
+		for (i=0, l=inputs.length; i<l; i++) {
+			axes[inputs[i].name] = inputs[i].value;
+		}
+		for (i in axes) {
+			if (i.length === 4) {
+				ffs.push('"' + i + '" ' + axes[i]);
+			}
+		}
+		ffs = ffs.join(', ') || 'normal';
+		
+		for (i=0, l=outputs.length; i<l; i++) {
+			outputs[i].style.fontVariationSettings = ffs;
+		}
+	}
+	
+	var i, l;
+	for (i=0, l=inputs.length; i<l; i++) {
+		inputs[i].addEventListener('input', doAxes);
+		inputs[i].addEventListener('change', doAxes);
+	}
+}
+
+document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
+	axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
+	li.className += ' loaded';
+});
+</script> -->
+
+</body>
+</html>
+
