@@ -124,11 +124,11 @@
 				var yMax = 125;
 				var yMin = 75;
 				var zMax = 1;
-                var zMin = 0;
+				var zMin = 0;
 
 				var x = xMin + ((event.gamma + 90) / 180 * (xMax - xMin));
 				var y = yMin + ((event.beta + 90) / 180 * (yMax - yMin));
-				var z = Math.abs(180 - event.alpha) / 180 * (zMax - zMin) + zMin;
+				var z = zMin + ((event.beta + 90) / 180 * (zMax - zMin));
 
 				var settings = [];
 				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
