@@ -51,14 +51,15 @@
 </head>
 
 <body>
-	<div id="main">
+	<div id="main" onclick="onClickFunc()">
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
 					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1;" id="targetFont">
 						<li class="font">
 							<figure>
-								<div class="sample M L XL "
+								<div id ="fontContent" 
+								class="sample M L XL "
 									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center;"
 									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 									ABC
@@ -128,13 +129,22 @@
 
 				var x = xMin + ((event.gamma + 90) / 180 * (xMax - xMin));
 				var y = yMin + ((event.beta + 90) / 180 * (yMax - yMin));
-				var z = zMin + ((event.beta + 90) / 180 * (zMax - zMin));
+				var z = (event.beta + 90.0) / 180.0;
 
 				var settings = [];
 				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
 				ul.style.fontVariationSettings = settings;
 				//var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
 			});
+		}
+
+		function onClickFunc() {
+			var charMax = 122;
+			var charMin = 65;
+			var char1 = Math.round(Math.random() * (charMax-charMin) + charMin);
+			var char2 = Math.round(Math.random() * (charMax-charMin) + charMin);
+			var char3 = Math.round(Math.random() * (charMax-charMin) + charMin);
+			document.getElementById("fontContent").innerHTML = `&#${char1}&#${char2}&#${char3}`;
 		}
 	</script>
 	</div>
