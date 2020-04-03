@@ -44,10 +44,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-
-
-
-
 </head>
 
 <body>
@@ -75,38 +71,6 @@
 	</div>
 
 	<script type="text/javascript">
-		// $(document).ready(function() {
-		// 	$('#typefaces').delegate('.load-more', 'click', function(e) {
-		// 		// Don't follow the link
-		// 		e.preventDefault();
-
-		// 		// Create a loading message and add it in place of the link
-		// 		loadingMessage = $('<div class="loading-more"><span class="spinner">⌚</span></div>');
-		// 		$('.pagination').replaceWith(loadingMessage);
-
-		// 		// Fetch the next page
-		// 		$.get($(this).attr('href'), function(data) {
-		// 			// Only grab the part of the page we want
-		// 			content = $(data).find('.ajax-wrapper').hide();
-
-		// 			// Add it to the DOM
-		// 			$(content).appendTo('#typefaces');
-
-		// 			// Remove loading indicator 
-		// 			$('.loading-more').fadeOut('fast').remove();
-
-		// 			// Fade-in our new content
-		// 			$(content).fadeIn('fast');
-
-		// 			//Re-run the slider script
-		// 			document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
-		// 				axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
-		// 				li.className += ' loaded';
-		// 			});
-		// 		});
-		// 	});
-		// });
-
 		var ul = document.getElementById("targetFont");
 		if (!('ondeviceorientation' in window)) {
 			//document.getElementById('do-unsupported').classList.remove('hidden');
@@ -114,12 +78,6 @@
 			//document.getElementById('do-info').classList.remove('hidden');
 
 			window.addEventListener('deviceorientation', function (event) {
-				//     document.getElementById('beta').innerHTML = Math.round(event.beta);
-				//     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-				//     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-				//document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
-
-
 				var xMax = 900;
 				var xMin = 100;
 				var yMax = 125;
@@ -151,7 +109,6 @@
 				var settings = [];
 				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
 				ul.style.fontVariationSettings = settings;
-				//var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
 			});
 		}
 
@@ -165,42 +122,5 @@
 		}
 	</script>
 	</div>
-
-	<!-- <script>
-function axisSlidersToSamples(sliders, samples) {
-	var inputs = document.querySelectorAll(sliders);
-	var outputs = document.querySelectorAll(samples);
-
-	function doAxes() {
-		var i, l, axes = {}, ffs = [];
-		for (i=0, l=inputs.length; i<l; i++) {
-			axes[inputs[i].name] = inputs[i].value;
-		}
-		for (i in axes) {
-			if (i.length === 4) {
-				ffs.push('"' + i + '" ' + axes[i]);
-			}
-		}
-		ffs = ffs.join(', ') || 'normal';
-		
-		for (i=0, l=outputs.length; i<l; i++) {
-			outputs[i].style.fontVariationSettings = ffs;
-		}
-	}
-	
-	var i, l;
-	for (i=0, l=inputs.length; i<l; i++) {
-		inputs[i].addEventListener('input', doAxes);
-		inputs[i].addEventListener('change', doAxes);
-	}
-}
-
-document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
-	axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
-	li.className += ' loaded';
-});
-</script> -->
-
 </body>
-
 </html>
