@@ -124,9 +124,7 @@
 	// });
 
 	var ul = document.getElementById("targetFont");
-	var settings = ['"wght" 1000, "CONT" 0, "MIDL" 300'];
-	ul.style.fontVariationSettings = settings;
-	console.log(ul.style.fontVariationSettings);
+	var settings = [];
 
 	if (!('ondeviceorientation' in window)) {
             //document.getElementById('do-unsupported').classList.remove('hidden');
@@ -146,11 +144,12 @@
                 //var rMin = rMax / 3;
 
                 var x = 500 + (event.gamma / 90 * xMax);
-                var y = 500 + (event.beta / 90 * yMax);
+				var y = 500 + (event.beta / 90 * yMax);
+				
+				settings.push(`"wght" ${x}, "CONT" ${y}, "MIDL" 300`);
+				ul.style.fontVariationSettings = settings;
                 //var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
             });
-
-
         }
 </script>
 </div>
