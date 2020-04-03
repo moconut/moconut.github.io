@@ -1,159 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115473371-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<meta charset="UTF-8" />
 
-  gtag('config', 'UA-115473371-1');
-</script>
+	<style>
+		@font-face {
+			src: url('assets/fonts/AktivGroteskVF_Trial_WghtWdthItal.woff2') format('woff2-variations');
+			font-family: 'KyivTypeSans';
+		}
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="format-detection" content="telephone=no">
+		* {
+			font-family: inherit;
+			font-weight: inherit;
+			font-variation-settings: inherit;
+			font-style: inherit;
+			font-size: 30px;
+			line-height: inherit;
+			text-align: inherit;
+			color: inherit;
+			text-decoration: none;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			box-sizing: border-box;
+			border-collapse: collapse;
+		}
 
-<style>
-@font-face {
-	src: url('assets/fonts/KyivTypeSans-VarGX.woff2') format('woff2-variations');
-	font-family:'KyivTypeSans';
-}
-* {
-	font-family: inherit;
-	font-weight: inherit;
-	font-variation-settings: inherit;
-	font-style: inherit;
-	font-size: 30px;
-	line-height: inherit;
-	text-align: inherit;
-	color: inherit;
-	text-decoration: none;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	box-sizing: border-box;
-	border-collapse: collapse;
-}
+		:root {
+			--pink: #F06;
+			--yellow: #f2e94e;
+			--yellow: #fff457;
+			--blue: #3397D9;
+			font-family: 'Zeitung Variable', 'Verdana', sans-serif;
+			font-variation-settings: 'wght'320;
+			line-height: 1.25;
+			text-align: left;
+			color: white;
+			background-color: black;
+		}
+	</style>
 
-* + * { margin-top: 1rem;}
-
-:root {
-	--pink: #F06;
-	--yellow: #f2e94e;
-	--yellow: #fff457;
-	--blue: #3397D9;
-	font-family: 'Zeitung Variable', 'Verdana', sans-serif;
-	font-variation-settings: 'wght' 320;
-	line-height: 1.25;
-	text-align: left;
-	color: white;
-	background-color: black;
-	-webkit-text-size-adjust: 100%;
-}
-
-</style>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 
 
-	
+
 
 </head>
 
 <body>
-<div id="main">	
-	<div id="typefaces">
-		<div class="ajax-wrapper">
+	<div id="main">
+		<div id="typefaces">
+			<div class="ajax-wrapper">
 				<div class="content">
-					<ul class="fonts" style="font-variation-settings: 'wght' 600,'CONT' 500,'MIDL' 0;" id="targetFont">
+					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1;" id="targetFont">
 						<li class="font">
 							<figure>
-								<div class="sample M L XL " style="font-family: 'KyivTypeSans'; font-size: 45vw; text-align: center;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+								<div class="sample M L XL "
+									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center;"
+									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 									ABC
 								</div>
-								
+
 							</figure>
 						</li>
-						
+
 					</ul>
 				</div>
 			</div>
-			
-			
-			
-		
-
 		</div>
 	</div>
-	
- <script type="text/javascript">
-	// $(document).ready(function() {
-	// 	$('#typefaces').delegate('.load-more', 'click', function(e) {
-	// 		// Don't follow the link
-	// 		e.preventDefault();
-	
-	// 		// Create a loading message and add it in place of the link
-	// 		loadingMessage = $('<div class="loading-more"><span class="spinner">⌚</span></div>');
-	// 		$('.pagination').replaceWith(loadingMessage);
-	
-	// 		// Fetch the next page
-	// 		$.get($(this).attr('href'), function(data) {
-	// 			// Only grab the part of the page we want
-	// 			content = $(data).find('.ajax-wrapper').hide();
-	
-	// 			// Add it to the DOM
-	// 			$(content).appendTo('#typefaces');
-	
-	// 			// Remove loading indicator 
-	// 			$('.loading-more').fadeOut('fast').remove();
-	
-	// 			// Fade-in our new content
-	// 			$(content).fadeIn('fast');
-				
-	// 			//Re-run the slider script
-	// 			document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
-	// 				axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
-	// 				li.className += ' loaded';
-	// 			});
-	// 		});
-	// 	});
-	// });
 
-	var ul = document.getElementById("targetFont");
-	if (!('ondeviceorientation' in window)) {
-            //document.getElementById('do-unsupported').classList.remove('hidden');
-        } else {
-            //document.getElementById('do-info').classList.remove('hidden');
+	<script type="text/javascript">
+		// $(document).ready(function() {
+		// 	$('#typefaces').delegate('.load-more', 'click', function(e) {
+		// 		// Don't follow the link
+		// 		e.preventDefault();
 
-            window.addEventListener('deviceorientation', function (event) {
-                //     document.getElementById('beta').innerHTML = Math.round(event.beta);
-                //     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-                //     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-                //document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+		// 		// Create a loading message and add it in place of the link
+		// 		loadingMessage = $('<div class="loading-more"><span class="spinner">⌚</span></div>');
+		// 		$('.pagination').replaceWith(loadingMessage);
+
+		// 		// Fetch the next page
+		// 		$.get($(this).attr('href'), function(data) {
+		// 			// Only grab the part of the page we want
+		// 			content = $(data).find('.ajax-wrapper').hide();
+
+		// 			// Add it to the DOM
+		// 			$(content).appendTo('#typefaces');
+
+		// 			// Remove loading indicator 
+		// 			$('.loading-more').fadeOut('fast').remove();
+
+		// 			// Fade-in our new content
+		// 			$(content).fadeIn('fast');
+
+		// 			//Re-run the slider script
+		// 			document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
+		// 				axisSlidersToSamples('#' + li.id + ' input', '#' + li.id + ' .sample');
+		// 				li.className += ' loaded';
+		// 			});
+		// 		});
+		// 	});
+		// });
+
+		var ul = document.getElementById("targetFont");
+		if (!('ondeviceorientation' in window)) {
+			//document.getElementById('do-unsupported').classList.remove('hidden');
+		} else {
+			//document.getElementById('do-info').classList.remove('hidden');
+
+			window.addEventListener('deviceorientation', function (event) {
+				//     document.getElementById('beta').innerHTML = Math.round(event.beta);
+				//     document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+				//     document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+				//document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
 
-                var xMax = 500;
-                var yMax = 500;
-                //var rMax = width / 17;
-                //var rMin = rMax / 3;
+				var xMax = 900;
+				var xMin = 100;
+				var yMax = 125;
+				var yMin = 75;
+				var zMax = 1;
+                var zMin = 0;
 
-                var x = 500 + (event.gamma / 90 * xMax);
-				var y = 500 + (event.beta / 90 * yMax);
+				var x = xMin + ((event.gamma + 90) / 180 * (xMax - xMin));
+				var y = yMin + ((event.beta + 90) / 180 * (yMax - yMin));
+				var z = Math.abs(180 - event.alpha) / 180 * (zMax - zMin) + zMin;
 
 				var settings = [];
-				settings.push(`"wght" ${x}, "CONT" ${y}, "MIDL" 300`);
+				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
 				ul.style.fontVariationSettings = settings;
-                //var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
-            });
-        }
-</script>
-</div>
+				//var r = (Math.abs(180 - event.alpha) / 180 * (rMax - rMin) + rMin) * 1.5;
+			});
+		}
+	</script>
+	</div>
 
-<!-- <script>
+	<!-- <script>
 function axisSlidersToSamples(sliders, samples) {
 	var inputs = document.querySelectorAll(sliders);
 	var outputs = document.querySelectorAll(samples);
@@ -189,5 +175,5 @@ document.querySelectorAll('.typeface:not(.loaded)').forEach(function(li) {
 </script> -->
 
 </body>
-</html>
 
+</html>
