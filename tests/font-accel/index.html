@@ -3,8 +3,10 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 	<style>
+		html, body {margin: 0; height: 100%; overflow: hidden}
 		@font-face {
 			src: url('assets/fonts/AktivGroteskVF_Trial_WghtWdthItal.woff2') format('woff2-variations');
 			font-family: 'KyivTypeSans';
@@ -51,7 +53,7 @@
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
-					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1;" id="targetFont">
+					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1; user-select: none;" id="targetFont">
 						<li class="font">
 							<figure>
 								<div id ="fontContent" 
