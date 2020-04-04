@@ -6,7 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 	<style>
-		html, body {margin: 0; height: 100%; overflow: hidden}
+		html,
+		body {
+			margin: 0;
+			height: 100%;
+			overflow: hidden
+		}
+
 		@font-face {
 			src: url('assets/fonts/AktivGroteskVF_Trial_WghtWdthItal.woff2') format('woff2-variations');
 			font-family: 'KyivTypeSans';
@@ -49,15 +55,16 @@
 </head>
 
 <body>
-	<div id="main" onclick="onClickFunc()">
+	<div id="main" onclick="onClick()" onmousemove="onMouseMove(event)">
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
-					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1; user-select: none;" id="targetFont">
+					<ul class="fonts"
+						style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1; user-select: none;"
+						id="targetFont">
 						<li class="font">
 							<figure>
-								<div id ="fontContent" 
-								class="sample M L XL "
+								<div id="fontContent" class="sample M L XL "
 									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center; height: 100vh; line-height: 100vh;"
 									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 									ABC
@@ -74,55 +81,78 @@
 
 	<script type="text/javascript">
 		var ul = document.getElementById("targetFont");
+		var width = ul.offsetWidth;
+		var height = ul.offsetHeight;
+
 		if (!('ondeviceorientation' in window)) {
 			//document.getElementById('do-unsupported').classList.remove('hidden');
 		} else {
 			//document.getElementById('do-info').classList.remove('hidden');
 
 			window.addEventListener('deviceorientation', function (event) {
-				var xMax = 900;
-				var xMin = 100;
-				var yMax = 125;
-				var yMin = 75;
-				var zMax = 1;
-				var zMin = 0;
-
 				var gamma = event.gamma * 2;
-				var beta = event.beta * 2;
+                var beta = event.beta * 2;
 
-				if(gamma > 90){
-					gamma = 90;
-				}
-				else if(gamma < -90){
-					gamma = -90;
-				}
+                if(gamma > 90){
+                    gamma = 90;
+                }
+                else if(gamma < -90){
+                    gamma = -90;
+                }
 
-				if(beta > 90){
-					beta = 90;
-				}
-				else if(beta < -90){
-					beta = -90;
-				}
+                if(beta > 90){
+                    beta = 90;
+                }
+                else if(beta < -90){
+                    beta = -90;
+                }
 
-				var x = xMin + (gamma + 90) / 180 * (xMax - xMin);
-				var y = yMin + (beta + 90) / 180 * (yMax - yMin);
-				var z = zMin + (beta + 90) / 180 * (zMax - zMin);
+				var xInput = (gamma + 90) / 180;
+				var yInput = (beta + 90) / 180;
+				var zInput = (beta + 90) / 180;
 
-				var settings = [];
-				settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
-				ul.style.fontVariationSettings = settings;
+				setFontProperty(xInput, yInput, zInput);
 			});
 		}
 
-		function onClickFunc() {
+		function setFontProperty(xInput, yInput, zInput) {
+			var xMax = 900;
+			var xMin = 100;
+			var yMax = 125;
+			var yMin = 75;
+			var zMax = 1;
+			var zMin = 0;
+
+			var x = xMin + xInput * (xMax - xMin);
+			var y = yMin + yInput * (yMax - yMin);
+			var z = zMin + zInput * (zMax - zMin);
+
+			var settings = [];
+			settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
+			ul.style.fontVariationSettings = settings;
+		}
+
+		function onClick() {
 			var charMax = 90;
 			var charMin = 65;
-			var char1 = Math.round(Math.random() * (charMax-charMin) + charMin);
-			var char2 = Math.round(Math.random() * (charMax-charMin) + charMin);
-			var char3 = Math.round(Math.random() * (charMax-charMin) + charMin);
+			var char1 = Math.round(Math.random() * (charMax - charMin) + charMin);
+			var char2 = Math.round(Math.random() * (charMax - charMin) + charMin);
+			var char3 = Math.round(Math.random() * (charMax - charMin) + charMin);
 			document.getElementById("fontContent").innerHTML = `&#${char1}&#${char2}&#${char3}`;
+		}
+
+		function onMouseMove(e) {
+			var x = e.clientX;
+			var y = e.clientY;
+
+			var xInput = x/width;
+			var yInput = y/height;
+			var zInput = y/height;
+
+			setFontProperty(xInput, yInput, zInput);
 		}
 	</script>
 	</div>
 </body>
+
 </html>
