@@ -18,6 +18,22 @@
 			font-family: 'KyivTypeSans';
 		}
 
+		#fontContent {
+			-webkit-touch-callout: none;
+			/* iOS Safari */
+			-webkit-user-select: none;
+			/* Safari */
+			-khtml-user-select: none;
+			/* Konqueror HTML */
+			-moz-user-select: none;
+			/* Old versions of Firefox */
+			-ms-user-select: none;
+			/* Internet Explorer/Edge */
+			user-select: none;
+			/* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+		}
+
 		* {
 			font-family: inherit;
 			font-weight: inherit;
@@ -59,14 +75,11 @@
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
-					<ul class="fonts"
-						style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1; user-select: none;"
-						id="targetFont">
+					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1;" id="targetFont">
 						<li class="font">
 							<figure>
 								<div id="fontContent" class="sample M L XL "
-									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center; height: 100vh; line-height: 100vh;"
-									autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center; height: 100vh; line-height: 100vh;">
 									ABC
 								</div>
 
@@ -155,7 +168,7 @@
 		function onTouchMove(event) {
 			var x = event.touches[0].clientX;
 			var y = event.touches[0].clientY;
-			
+
 			var xInput = x / width;
 			var yInput = y / height;
 			var zInput = y / height;
