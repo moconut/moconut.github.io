@@ -55,7 +55,7 @@
 </head>
 
 <body>
-	<div id="main" onclick="onClick()" onmousemove="onMouseMove(event)">
+	<div id="main" onclick="onClick()" onmousemove="onMouseMove(event)" ontouchmove="onTouchMove(event)">
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
@@ -91,21 +91,21 @@
 
 			window.addEventListener('deviceorientation', function (event) {
 				var gamma = event.gamma * 2;
-                var beta = event.beta * 2;
+				var beta = event.beta * 2;
 
-                if(gamma > 90){
-                    gamma = 90;
-                }
-                else if(gamma < -90){
-                    gamma = -90;
-                }
+				if (gamma > 90) {
+					gamma = 90;
+				}
+				else if (gamma < -90) {
+					gamma = -90;
+				}
 
-                if(beta > 90){
-                    beta = 90;
-                }
-                else if(beta < -90){
-                    beta = -90;
-                }
+				if (beta > 90) {
+					beta = 90;
+				}
+				else if (beta < -90) {
+					beta = -90;
+				}
 
 				var xInput = (gamma + 90) / 180;
 				var yInput = (beta + 90) / 180;
@@ -145,9 +145,20 @@
 			var x = e.clientX;
 			var y = e.clientY;
 
-			var xInput = x/width;
-			var yInput = y/height;
-			var zInput = y/height;
+			var xInput = x / width;
+			var yInput = y / height;
+			var zInput = y / height;
+
+			setFontProperty(xInput, yInput, zInput);
+		}
+
+		function onTouchMove(event) {
+			var x = event.touches[0].clientX;
+			var y = event.touches[0].clientY;
+			
+			var xInput = x / width;
+			var yInput = y / height;
+			var zInput = y / height;
 
 			setFontProperty(xInput, yInput, zInput);
 		}
