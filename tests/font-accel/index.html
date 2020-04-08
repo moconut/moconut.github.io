@@ -13,11 +13,13 @@
 			overflow: hidden
 		}
 
+		/* 베리어블 폰트 지정 */
 		@font-face {
 			src: url('assets/fonts/AktivGroteskVF_Trial_WghtWdthItal.woff2') format('woff2-variations');
 			font-family: 'KyivTypeSans';
 		}
 
+		/* 글자 선택 못하게 설정 */
 		#fontContent {
 			-webkit-touch-callout: none;
 			/* iOS Safari */
@@ -71,15 +73,18 @@
 </head>
 
 <body>
+	<!-- 클릭했을 때, 마우스 움직였을 때, 터치 상태에서 움직였을 때 이벤트 등록 -->
 	<div id="main" onclick="onClick()" onmousemove="onMouseMove(event)" ontouchmove="onTouchMove(event)">
 		<div id="typefaces">
 			<div class="ajax-wrapper">
 				<div class="content">
+					<!-- font-variation-settings : 배리어블 폰트 속성 지정 -->
 					<ul class="fonts" style="font-variation-settings:  'wght' 400,'wdth' 100,'ital' 1;" id="targetFont">
 						<li class="font">
 							<figure>
 								<div id="fontContent" class="sample M L XL "
 									style="font-family: 'KyivTypeSans'; font-size: 40vw; text-align: center; height: 100vh; line-height: 100vh;">
+									<!-- 본문 -->
 									ABC
 								</div>
 
@@ -97,11 +102,13 @@
 		var width = ul.offsetWidth;
 		var height = ul.offsetHeight;
 
+		// 화면 기울임 인식을 지원하는지에 대한 체크
 		if (!('ondeviceorientation' in window)) {
 			//document.getElementById('do-unsupported').classList.remove('hidden');
 		} else {
 			//document.getElementById('do-info').classList.remove('hidden');
-
+			
+			// 화면 기울임 이벤트에 대한 리스너 작성. 기울임 정도에 따라 폰트 속성을 바꿈.
 			window.addEventListener('deviceorientation', function (event) {
 				var gamma = event.gamma * 2;
 				var beta = event.beta * 2;
@@ -128,6 +135,7 @@
 			});
 		}
 
+		// 폰트 속성 지정 함수.
 		function setFontProperty(xInput, yInput, zInput) {
 			var xMax = 900;
 			var xMin = 100;
@@ -141,10 +149,11 @@
 			var z = zMin + zInput * (zMax - zMin);
 
 			var settings = [];
-			settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`);
+			settings.push(`"wght" ${x}, "wdth" ${y}, "ital" ${z}`); //wght : 굴기 정도, wdth : 넓이 정도, ital : 기울임 정도.
 			ul.style.fontVariationSettings = settings;
 		}
 
+		// 클릭했을 때 이벤트 함수. 글자를 랜덤하게 바꿈
 		function onClick() {
 			var charMax = 90;
 			var charMin = 65;
@@ -154,6 +163,7 @@
 			document.getElementById("fontContent").innerHTML = `&#${char1}&#${char2}&#${char3}`;
 		}
 
+		// 마우스를 움직였을 때 이벤트 함수. x, y 좌표에 따라 폰트 속성을 바꿈
 		function onMouseMove(e) {
 			var x = e.clientX;
 			var y = e.clientY;
@@ -165,6 +175,7 @@
 			setFontProperty(xInput, yInput, zInput);
 		}
 
+		// 터치 기기에 대해, 터치를 한 상태에서 손가락을 움직였을 때 이벤트 함수. x, y 좌표에 따라 폰트 속성을 바꿈
 		function onTouchMove(event) {
 			var x = event.touches[0].clientX;
 			var y = event.touches[0].clientY;
