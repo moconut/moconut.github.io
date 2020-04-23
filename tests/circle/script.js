@@ -14,6 +14,9 @@ class Circle {
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 var circleArray = []
 for (i = CIRCLE_RADIUS; i < canvas.width; i = i + CIRCLE_RADIUS * 2) {
     for (j = CIRCLE_RADIUS; j < canvas.height; j = j + CIRCLE_RADIUS * 2)
