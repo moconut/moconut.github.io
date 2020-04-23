@@ -55,4 +55,12 @@ function onMouseMove(e) {
     posMouseY = y;
 }
 
+function onTouchMove(event) {
+    var x = event.touches[0].clientX;
+    var y = event.touches[0].clientY;
+
+    posMouseX = x;
+    posMouseY = y;
+}
+
 
