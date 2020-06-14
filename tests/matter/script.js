@@ -5,7 +5,8 @@ const borderThickness = 40; // 상하좌우 벽 굵기
 const ballRadiusMin = 15; // 생성되는 원의 지름 최소
 const ballRadiusMax = 60; // 생성되는 원의 지름 최대
 const imageScale = 1; // 글자 이미지 스케일
-const objectRestitution = 1; // 물체의 탄성
+const BallRestitution = 1; // 공의 탄성
+const WordRestitution = 0.5; // 공의 탄성
 const gravityScale = 0.002; // 중력 세기
 
 var colorArray = [];
@@ -129,7 +130,7 @@ function addWord(index) {
             }
         }
         );
-        imageBlock.restitution = objectRestitution;
+        imageBlock.restitution = WordRestitution;
         World.add(engine.world, imageBlock);
 
         addWord(index+1);
@@ -153,6 +154,6 @@ function createBall(xPos, yPos)
     var targetSize = Math.round(ballRadiusMin + Math.random() * (ballRadiusMax - ballRadiusMin));
     var newBall = Bodies.circle(xPos, yPos, targetSize, 10);
     newBall.render.fillStyle = colorArray[targetColor];
-    newBall.restitution = objectRestitution;
+    newBall.restitution = BallRestitution;
     World.add(engine.world, newBall);
 }
