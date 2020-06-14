@@ -67,6 +67,19 @@ Render.run(render);
 
 addWords();
 
+if ('ondeviceorientation' in window) {
+    window.addEventListener('deviceorientation', function (event) {
+        console.log(event.beta + ", " + event.gamma + ", " + event.alpha);
+        console.log(event.absolute ? "true" : "false");
+
+        var xGravity = event.gamma / 90;
+        var yGravity = event.beta / 90;
+
+        engine.world.gravity.x = xGravity;
+        engine.world.gravity.y = yGravity;
+    });
+}
+
 function addWords() {
     addWord(1);
 }
@@ -119,5 +132,4 @@ function createBall(xPos, yPos)
     newBall.render.fillStyle = colorArray[targetColor];
     newBall.restitution = objectRestitution;
     World.add(engine.world, newBall);
-
 }
