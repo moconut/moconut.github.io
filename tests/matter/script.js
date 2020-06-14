@@ -54,9 +54,13 @@ Events.on(mConstraint, "mousemove", function(event) {
 });
               
 var groundWall = Bodies.rectangle(screenWidth / 2, screenHeight, screenWidth, borderThickness, { isStatic: true });
+groundWall.render.fillStyle = 'rgb(255,255,255)';
 var topWall = Bodies.rectangle(screenWidth / 2, 0, screenWidth, borderThickness, { isStatic: true });
+topWall.render.fillStyle = 'rgb(255,255,255)';
 var leftWall = Bodies.rectangle(0, screenHeight / 2, borderThickness, screenHeight, { isStatic: true });
+leftWall.render.fillStyle = 'rgb(255,255,255)';
 var rightWall = Bodies.rectangle(screenWidth, screenHeight / 2, borderThickness, screenHeight, { isStatic: true });
+rightWall.render.fillStyle = 'rgb(255,255,255)';
 
 World.add(engine.world, [groundWall, topWall, leftWall, rightWall]);
 
