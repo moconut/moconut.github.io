@@ -7,24 +7,9 @@
     padding: 0 !important;
 }
 </style>
-<body onmousemove="onMouseMove(event)">
+<body>
     <script src="matter.js"></script>
     <script src="script.js"></script>
-    <script> 
-        var bodyWidth = document.body.clientWidth;
-        var bodyHeight = document.body.clientHeight;
-
-        //console.log(bodyWidth + "," + bodyHeight);
-      function onMouseMove(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-
-        var xInput = (x / bodyWidth) * 2 - 1;
-			  var yInput = (y / bodyHeight) * 2 - 1;
-        engine.world.gravity.x = xInput;
-        engine.world.gravity.y = yInput;
-      }
-    </script>
 </body>
 </head>
 </html>
