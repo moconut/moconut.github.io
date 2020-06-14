@@ -2,9 +2,9 @@
 <html>
 <head>
 <style>
-    body {
-  margin: 20px auto;
-  text-align: center;
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 </style>
 <body onmousemove="onMouseMove(event)">
@@ -14,7 +14,7 @@
         var bodyWidth = document.body.clientWidth;
         var bodyHeight = document.body.clientHeight;
 
-        console.log(bodyWidth + "," + bodyHeight);
+        //console.log(bodyWidth + "," + bodyHeight);
       function onMouseMove(e) {
         var x = e.clientX;
         var y = e.clientY;
