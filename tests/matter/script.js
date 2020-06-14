@@ -1,6 +1,6 @@
 var screenWidth = window.innerWidth;
 var screenHeight =  window.innerHeight;
-var borderThickness = 20;
+var borderThickness = 40;
 var imageScale = 1;
 var ballRadius = 30;
 var objectRestitution = 1;
@@ -64,7 +64,7 @@ rightWall.render.fillStyle = 'rgb(255,255,255)';
 
 World.add(engine.world, [groundWall, topWall, leftWall, rightWall]);
 
-engine.world.scale = gravityScale;
+engine.world.gravity.scale = gravityScale;
  
 Engine.run(engine);
 Render.run(render);
@@ -114,6 +114,7 @@ function addWord(index) {
         }
         );
         imageBlock.restitution = objectRestitution;
+        //imageBlock.frictionAir = 0;
         World.add(engine.world, imageBlock);
 
         addWord(index+1);
