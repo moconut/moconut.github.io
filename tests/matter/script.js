@@ -1,10 +1,11 @@
-const screenWidth = window.innerWidth;
-const screenHeight =  window.innerHeight;
+const screenWidth = window.innerWidth; // 화면 가로 크기
+const screenHeight =  window.innerHeight; // 화면 세로 크기
 
 const borderThickness = 40; // 상하좌우 벽 굵기
-const ballRadius = 30; // 생성되는 원의 지름
+const ballRadiusMin = 15; // 생성되는 원의 지름 최소
+const ballRadiusMax = 60; // 생성되는 원의 지름 최대
 const imageScale = 1; // 글자 이미지 스케일
-const objectRestitution = 1; // 물체의 탄성(최대 1)
+const objectRestitution = 1; // 물체의 탄성
 const gravityScale = 0.002; // 중력 세기
 
 var colorArray = [];
@@ -148,8 +149,9 @@ function changeGravity(xPos, yPos){
 // 공 생성
 function createBall(xPos, yPos)
 {
-    var newBall = Bodies.circle(xPos, yPos, ballRadius, 10);
     var targetColor = Math.round(Math.random() * (colorArray.length - 1));
+    var targetSize = Math.round(ballRadiusMin + Math.random() * (ballRadiusMax - ballRadiusMin));
+    var newBall = Bodies.circle(xPos, yPos, targetSize, 10);
     newBall.render.fillStyle = colorArray[targetColor];
     newBall.restitution = objectRestitution;
     World.add(engine.world, newBall);
