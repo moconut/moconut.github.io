@@ -9,7 +9,7 @@ const BallRestitution = 1; // 공의 탄성
 const WordRestitution = 0.5; // 공의 탄성
 const gravityScale = 0.002; // 중력 세기
 
-var colorArray = [];
+var colorArray = []; // 랜덤으로 선택될 공 색상들
 colorArray.push('rgb(0, 0, 0)');
 colorArray.push('rgb(21, 105, 255)');
 
