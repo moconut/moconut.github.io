@@ -1,8 +1,10 @@
 var screenWidth = window.innerWidth;
 var screenHeight =  window.innerHeight;
 var borderThickness = 20;
-var imageScale = 0.6;
-var ballRadius = 20;
+var imageScale = 1;
+var ballRadius = 30;
+var objectRestitution = 1;
+var gravityScale = 0.002;
 
 var colorArray = [];
 colorArray.push('rgb(47,175,74)');
@@ -42,7 +44,7 @@ Events.on(mConstraint, "mousedown", function(event) {
     var newBall = Bodies.circle(mConstraint.mouse.position.x, mConstraint.mouse.position.y, ballRadius, 10);
     var targetColor = Math.round(Math.random());
     newBall.render.fillStyle = colorArray[targetColor];
-    newBall.restitution = 0.9;
+    newBall.restitution = objectRestitution;
     World.add(engine.world, newBall);
 });
               
@@ -53,7 +55,7 @@ var rightWall = Bodies.rectangle(screenWidth, screenHeight / 2, borderThickness,
 
 World.add(engine.world, [groundWall, topWall, leftWall, rightWall]);
 
-engine.world.scale = 0.002;
+engine.world.scale = gravityScale;
  
 Engine.run(engine);
 Render.run(render);
@@ -89,7 +91,7 @@ function addWord(index) {
             }
         }
         );
-        imageBlock.restitution = 0.9;
+        imageBlock.restitution = objectRestitution;
         World.add(engine.world, imageBlock);
 
         addWord(index+1);
