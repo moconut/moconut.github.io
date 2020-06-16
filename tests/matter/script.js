@@ -2,9 +2,9 @@ const screenWidth = window.innerWidth; // 화면 가로 크기
 const screenHeight =  window.innerHeight; // 화면 세로 크기
 
 const borderThickness = 40; // 상하좌우 벽 굵기
-const ballRadiusMin = 15; // 생성되는 원의 지름 최소
-const ballRadiusMax = 60; // 생성되는 원의 지름 최대
-const imageScale = 1; // 글자 이미지 스케일
+const ballRadiusMin = 3; // 생성되는 원의 지름 최소
+const ballRadiusMax = 50; // 생성되는 원의 지름 최대
+const imageScale = 0.8; // 글자 이미지 스케일
 const BallRestitution = 1; // 공의 탄성
 const WordRestitution = 0.5; // 공의 탄성
 const gravityScale = 0.002; // 중력 세기
